@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>건설시스템공학과 유지예 | 포트폴리오</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Civil Engineering & Tech Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Inter & Noto Sans KR) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -63,9 +66,11 @@
 </head>
 <body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300 font-sans blueprint-bg overflow-x-hidden">
 
+    <!-- Navigation Bar -->
     <nav class="fixed top-0 left-0 w-full z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center gap-2">
                     <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-brand-700 to-brand-500 flex items-center justify-center text-white font-bold text-lg shadow-md shadow-brand-500/20">
                         <i class="fa-solid fa-compass-drafting"></i>
@@ -76,6 +81,7 @@
                     </div>
                 </div>
 
+                <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-6">
                     <a href="#about" class="hover:text-brand-500 font-medium transition-colors">프로필</a>
                     <a href="#skills" class="hover:text-brand-500 font-medium transition-colors">핵심역량</a>
@@ -83,11 +89,13 @@
                     <a href="#experience" class="hover:text-brand-500 font-medium transition-colors">활동경력</a>
                     <a href="#contact" class="hover:text-brand-500 font-medium transition-colors">연락처</a>
                     
+                    <!-- Theme Toggle Button -->
                     <button id="theme-toggle" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:ring-2 hover:ring-brand-500 transition-all" aria-label="화면 모드 변경">
                         <i id="theme-icon" class="fa-solid fa-moon"></i>
                     </button>
                 </div>
 
+                <!-- Mobile menu button & theme button -->
                 <div class="flex items-center gap-2 md:hidden">
                     <button id="theme-toggle-mobile" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 transition-all">
                         <i id="theme-icon-mobile" class="fa-solid fa-moon"></i>
@@ -99,6 +107,7 @@
             </div>
         </div>
 
+        <!-- Mobile Dynamic Drawer -->
         <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-4 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 space-y-1">
             <a href="#about" class="block px-3 py-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 font-medium">프로필</a>
             <a href="#skills" class="block px-3 py-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 font-medium">핵심역량</a>
@@ -108,14 +117,17 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <header class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Hero Left: Text Introduction -->
                 <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-100 dark:bg-brand-900/40 text-brand-700 dark:text-brand-300 font-semibold text-sm">
-                        <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
-                        스마트 인프라를 설계하는 예비 토목 엔지니어
+                    <!-- 첫 화면 최상단 골드 뱃지 추가 -->
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-100 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 font-bold text-sm border border-amber-200 dark:border-amber-900">
+                        🏆 국토교통부 장관상 수상자
                     </div>
+                    
                     <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
                         구조적 <span class="text-brand-500 dark:text-brand-400">안정성</span> 위에<br class="hidden sm:inline">
                         <span class="text-brand-800 dark:text-sky-300">혁신적인 미래</span>를 올리다
@@ -124,6 +136,7 @@
                         안녕하세요! 구조 해석 프로그램(MIDAS), 3D BIM(Revit), 수리학적 분석(SWMM) 등 최신 기술을 접목하여 안전하고 효율적인 도시 건설인프라 솔루션을 고안하는 <strong>건설시스템공학과</strong> 유지예입니다.
                     </p>
                     
+                    <!-- CTA Buttons -->
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                         <a href="#projects" class="px-6 py-3.5 rounded-xl bg-brand-600 text-white font-bold hover:bg-brand-700 shadow-lg shadow-brand-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2">
                             <i class="fa-solid fa-folder-open"></i> 프로젝트 보기
@@ -133,27 +146,204 @@
                         </a>
                     </div>
 
+                    <!-- Highlight Metrics (첫 화면 지표 수정: 자격증 2개 + 수상 1회 명시) -->
                     <div class="grid grid-cols-3 gap-4 pt-6 max-w-md mx-auto lg:mx-0 border-t border-slate-200 dark:border-slate-800">
                         <div>
                             <p class="text-3xl font-extrabold text-brand-600 dark:text-brand-400">4.12<span class="text-sm font-semibold"> / 4.5</span></p>
                             <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">학업 우수 전공학점</p>
                         </div>
                         <div>
-                            <p class="text-3xl font-extrabold text-brand-600 dark:text-brand-400">4회<span class="text-sm font-semibold"></span></p>
-                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">설계 프로젝트 수행</p>
+                            <p class="text-3xl font-extrabold text-brand-600 dark:text-brand-400">2개<span class="text-sm font-semibold"></span></p>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">토목/재료시험 기사</p>
                         </div>
                         <div>
-                            <p class="text-3xl font-extrabold text-brand-600 dark:text-brand-400">2개<span class="text-sm font-semibold"></span></p>
-                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">전문 국가 기술자격</p>
+                            <p class="text-3xl font-extrabold text-amber-600 dark:text-amber-400">1회<span class="text-sm font-semibold"></span></p>
+                            <p class="text-xs text-amber-700 dark:text-amber-500 font-semibold mt-1">국토부장관상 수상</p>
                         </div>
                     </div>
                 </div>
 
+                <!-- Hero Right: Isometric Vector/Visual representation -->
                 <div class="lg:col-span-5 flex justify-center">
                     <div class="relative w-full max-w-md h-80 sm:h-96 rounded-2xl bg-gradient-to-br from-brand-800 to-brand-900 border-2 border-brand-500/30 shadow-2xl overflow-hidden flex items-center justify-center floating-structure">
+                        <!-- Blueprint grids in visual -->
                         <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(#38bdf8 1px, transparent 1px), linear-gradient(90deg, #38bdf8 1px, transparent 1px); background-size: 20px 20px;"></div>
                         
+                        <!-- High tech geometric engineering sketch -->
                         <svg class="w-3/4 h-3/4 text-brand-400/80 drop-shadow-[0_0_15px_rgba(56,189,248,0.3)]" fill="none" viewBox="0 0 200 200" stroke="currentColor" stroke-width="1.5">
+                            <!-- Crane & Bridge Concept Visual -->
                             <path stroke-linecap="round" stroke-linejoin="round" d="M10 180h180M30 180V80l40-40h80l40 40v100" />
                             <path stroke-linecap="round" stroke-linejoin="round" d="M70 40v40m60-40v40M30 110h140M30 140h140" stroke-dasharray="2,2" />
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M30 180l30-30 30 30 30-30 30 30 30-30 20 20"
+                            <!-- Triangles/Trusses representing Bridge Structure -->
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M30 180l30-30 30 30 30-30 30 30 30-30 20 20" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M30 140l30-30 30 30 30-30 30 30 30-30 20 20" />
+                            <circle cx="110" cy="40" r="4" fill="currentColor" />
+                            <circle cx="70" cy="40" r="4" fill="currentColor" />
+                            <circle cx="150" cy="40" r="4" fill="currentColor" />
+                            <!-- Circular compass indicator -->
+                            <circle cx="100" cy="110" r="25" stroke-dasharray="4,4" />
+                            <line x1="100" y1="75" x2="100" y2="145" stroke-width="1" />
+                            <line x1="65" y1="110" x2="135" y2="110" stroke-width="1" />
+                        </svg>
+
+                        <!-- Float Badge -->
+                        <div class="absolute bottom-4 left-4 bg-slate-900/90 border border-brand-500/40 px-3 py-2 rounded-lg text-xs text-brand-300 font-mono flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+                            BIM Lod 350 / MIDAS Ready
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-20 bg-white dark:bg-slate-950/40 border-t border-slate-100 dark:border-slate-900 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-slate-950 dark:text-white">PROFILES</h2>
+                <div class="w-16 h-1 bg-brand-500 mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-600 dark:text-slate-400 mt-4">안전과 지속가능성을 기틀로 삼는 차세대 미래 인재를 소개합니다.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                <!-- Profile details -->
+                <div class="lg:col-span-4 flex flex-col items-center p-6 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm text-center">
+                    <div class="relative w-36 h-36 rounded-full overflow-hidden border-4 border-white dark:border-slate-800 shadow-md mb-6">
+                        <img src="https://placehold.co/150x150/0284c7/ffffff?text=ENG" alt="유지예 사진" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/150x150/cccccc/333333?text=Profile'">
+                    </div>
+                    <h3 class="text-2xl font-bold">유지예 <span class="text-sm font-normal text-slate-500 dark:text-slate-400">(25세)</span></h3>
+                    <p class="text-brand-600 dark:text-brand-400 font-semibold mt-1">대한대학교 건설시스템공학과 졸업예정</p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">(2021.03 - 2027.02 예정)</p>
+                    
+                    <div class="w-full border-t border-slate-200 dark:border-slate-800 my-5"></div>
+                    
+                    <div class="w-full text-left space-y-3.5 text-sm">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-brand-500 w-5"></i>
+                            <span class="text-slate-600 dark:text-slate-300">civil_jiye@email.com</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-brand-500 w-5"></i>
+                            <span class="text-slate-600 dark:text-slate-300">010-1234-5678</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-location-dot text-brand-500 w-5"></i>
+                            <span class="text-slate-600 dark:text-slate-300">서울특별시 성동구</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-graduation-cap text-brand-500 w-5"></i>
+                            <span class="text-slate-600 dark:text-slate-300">건설시스템공학 전공 (학점 4.12/4.5)</span>
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="mt-6 w-full py-2.5 px-4 bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold rounded-lg hover:bg-slate-800 dark:hover:bg-slate-100 transition-colors text-sm">
+                        연락처 복사 / 메일 쓰기
+                    </a>
+                </div>
+
+                <!-- Education / Certifications -->
+                <div class="lg:col-span-8 space-y-8">
+                    <!-- Core Values / Strengths -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-lightbulb text-brand-500"></i> 핵심 가치관
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
+                                <span class="p-2 rounded-lg bg-emerald-100 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 inline-block mb-3">
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                </span>
+                                <h4 class="font-bold">철저한 구조 안전성</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">안전률과 한계상태설계법을 엄격히 준수하여 신뢰할 수 있는 기반 시설을 구축합니다.</p>
+                            </div>
+                            <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
+                                <span class="p-2 rounded-lg bg-brand-100 dark:bg-brand-950/50 text-brand-600 dark:text-brand-400 inline-block mb-3">
+                                    <i class="fa-solid fa-cube"></i>
+                                </span>
+                                <h4 class="font-bold">스마트 BIM 연계</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">평면 도면을 뛰어넘어 3D 데이터 모델링(Revit)을 통해 시공 간섭을 획기적으로 줄입니다.</p>
+                            </div>
+                            <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
+                                <span class="p-2 rounded-lg bg-amber-100 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 inline-block mb-3">
+                                    <i class="fa-solid fa-seedling"></i>
+                                </span>
+                                <h4 class="font-bold">친환경 스마트 시티</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">투수성 포장, 저영향개발(LID) 기법을 반영한 지속가능한 수자원과 도시 공학을 추구합니다.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certifications & Awards List -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-certificate text-brand-500"></i> 자격증 및 기술 자격
+                        </h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="flex items-center gap-3.5 p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
+                                <div class="w-12 h-12 rounded-lg bg-brand-100 dark:bg-brand-900/50 text-brand-600 dark:text-brand-400 flex items-center justify-center text-lg font-bold shrink-0">
+                                    <i class="fa-solid fa-hard-hat"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm">토목기사</h4>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400">한국산업인력공단 | 취득 완료</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3.5 p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
+                                <div class="w-12 h-12 rounded-lg bg-brand-100 dark:bg-brand-900/50 text-brand-600 dark:text-brand-400 flex items-center justify-center text-lg font-bold shrink-0">
+                                    <i class="fa-solid fa-flask"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm">건설재료시험기사</h4>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400">한국산업인력공단 | 취득 완료</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3.5 p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
+                                <div class="w-12 h-12 rounded-lg bg-brand-100 dark:bg-brand-900/50 text-brand-600 dark:text-brand-400 flex items-center justify-center text-lg font-bold shrink-0">
+                                    <i class="fa-solid fa-file-invoice"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm">AutoCAD 실무능력평가 (CAT 1급)</h4>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400">한국생산성본부 | 취득 완료</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3.5 p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
+                                <div class="w-12 h-12 rounded-lg bg-brand-100 dark:bg-brand-900/50 text-brand-600 dark:text-brand-400 flex items-center justify-center text-lg font-bold shrink-0">
+                                    <i class="fa-solid fa-language"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm">TOEIC Speaking AL (160점)</h4>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400">YBM 한국토익위원회 | 2026.02</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Awards Section -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-trophy text-brand-500"></i> 수상 내역
+                        </h3>
+                        <div class="p-4 bg-gradient-to-r from-amber-500/10 to-transparent dark:from-amber-500/5 rounded-xl border border-amber-500/20 flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-amber-100 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl font-bold shrink-0 shadow-sm">
+                                <i class="fa-solid fa-award"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-slate-900 dark:text-white">국토교통부 장관상 수상</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">국토교통부 | 대학생 스마트 건설 인프라 설계 공모전 우수 성과 인정</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Engineering Skills Section (생략 가능, 기존 유지) -->
+    <section id="skills" class="py-20 bg-slate-100/50 dark:bg-slate-900/50 border-t border-slate-200 dark:border-slate-800 transition-colors">
+        <!-- 기존 코드 유지 -->
+    </section>
+
+</body>
+</html>
