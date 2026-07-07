@@ -1,0 +1,1044 @@
+
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>건설시스템공학도 홍길동 | 포트폴리오</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Civil Engineering & Tech Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Inter & Noto Sans KR) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#0284c7', // Sky Blue Representing structural clarity
+                            600: '#0369a1',
+                            700: '#075985',
+                            800: '#0c4a6e', // Deep Steel Blue
+                            900: '#0a2540', // Structural Dark Blue
+                            accent: '#f59e0b' // Construction Amber Accent
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans KR', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Modern blueprint/grid background effect */
+        .blueprint-bg {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(2, 132, 199, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(2, 132, 199, 0.05) 1px, transparent 1px);
+        }
+        .dark .blueprint-bg {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(56, 189, 248, 0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
+        }
+        
+        /* Subtle animation for structure grid floating */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating-structure {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300 font-sans blueprint-bg overflow-x-hidden">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 w-full z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-brand-700 to-brand-500 flex items-center justify-center text-white font-bold text-lg shadow-md shadow-brand-500/20">
+                        <i class="fa-solid fa-compass-drafting"></i>
+                    </div>
+                    <div>
+                        <span class="font-bold text-lg tracking-tight text-slate-900 dark:text-white block leading-none">홍길동</span>
+                        <span class="text-xs text-brand-500 dark:text-brand-100 font-medium">건설시스템공학 포트폴리오</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#about" class="hover:text-brand-500 font-medium transition-colors">프로필</a>
+                    <a href="#skills" class="hover:text-brand-500 font-medium transition-colors">핵심역량</a>
+                    <a href="#projects" class="hover:text-brand-500 font-medium transition-colors">프로젝트</a>
+                    <a href="#experience" class="hover:text-brand-500 font-medium transition-colors">활동경력</a>
+                    <a href="#contact" class="hover:text-brand-500 font-medium transition-colors">연락처</a>
+                    
+                    <!-- Theme Toggle Button -->
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:ring-2 hover:ring-brand-500 transition-all" aria-label="화면 모드 변경">
+                        <i id="theme-icon" class="fa-solid fa-moon"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile menu button & theme button -->
+                <div class="flex items-center gap-2 md:hidden">
+                    <button id="theme-toggle-mobile" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 transition-all">
+                        <i id="theme-icon-mobile" class="fa-solid fa-moon"></i>
+                    </button>
+                    <button id="mobile-menu-btn" class="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dynamic Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-4 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 space-y-1">
+            <a href="#about" class="block px-3 py-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 font-medium">프로필</a>
+            <a href="#skills" class="block px-3 py-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 font-medium">핵심역량</a>
+            <a href="#projects" class="block px-3 py-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 font-medium">프로젝트</a>
+            <a href="#experience" class="block px-3 py-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 font-medium">활동경력</a>
+            <a href="#contact" class="block px-3 py-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 font-medium">연락처</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Hero Left: Text Introduction -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-100 dark:bg-brand-900/40 text-brand-700 dark:text-brand-300 font-semibold text-sm">
+                        <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+                        스마트 인프라를 설계하는 예비 토목 엔지니어
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                        구조적 <span class="text-brand-500 dark:text-brand-400">안정성</span> 위에<br class="hidden sm:inline">
+                        <span class="text-brand-800 dark:text-sky-300">혁신적인 미래</span>를 올리다
+                    </h1>
+                    <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0">
+                        안녕하세요! 구조 해석 프로그램(MIDAS), 3D BIM(Revit), 수리학적 분석(SWMM) 등 최신 기술을 접목하여 안전하고 효율적인 도시 건설인프라 솔루션을 고안하는 <strong>건설시스템공학과</strong> 홍길동입니다.
+                    </p>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#projects" class="px-6 py-3.5 rounded-xl bg-brand-600 text-white font-bold hover:bg-brand-700 shadow-lg shadow-brand-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-folder-open"></i> 프로젝트 보기
+                        </a>
+                        <a href="#contact" class="px-6 py-3.5 rounded-xl bg-white dark:bg-slate-800 text-slate-800 dark:text-white font-bold hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-envelope"></i> 인재 채용 제안
+                        </a>
+                    </div>
+
+                    <!-- Highlight Metrics -->
+                    <div class="grid grid-cols-3 gap-4 pt-6 max-w-md mx-auto lg:mx-0 border-t border-slate-200 dark:border-slate-800">
+                        <div>
+                            <p class="text-3xl font-extrabold text-brand-600 dark:text-brand-400">4.12<span class="text-sm font-semibold"> / 4.5</span></p>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">학업 우수 전공학점</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-extrabold text-brand-600 dark:text-brand-400">4회<span class="text-sm font-semibold"></span></p>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">설계 프로젝트 수행</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-extrabold text-brand-600 dark:text-brand-400">2개<span class="text-sm font-semibold"></span></p>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">전문 국가 기술자격</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Right: Isometric Vector/Visual representation -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md h-80 sm:h-96 rounded-2xl bg-gradient-to-br from-brand-800 to-brand-900 border-2 border-brand-500/30 shadow-2xl overflow-hidden flex items-center justify-center floating-structure">
+                        <!-- Blueprint grids in visual -->
+                        <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(#38bdf8 1px, transparent 1px), linear-gradient(90deg, #38bdf8 1px, transparent 1px); background-size: 20px 20px;"></div>
+                        
+                        <!-- High tech geometric engineering sketch -->
+                        <svg class="w-3/4 h-3/4 text-brand-400/80 drop-shadow-[0_0_15px_rgba(56,189,248,0.3)]" fill="none" viewBox="0 0 200 200" stroke="currentColor" stroke-width="1.5">
+                            <!-- Crane & Bridge Concept Visual -->
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10 180h180M30 180V80l40-40h80l40 40v100" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M70 40v40m60-40v40M30 110h140M30 140h140" stroke-dasharray="2,2" />
+                            <!-- Triangles/Trusses representing Bridge Structure -->
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M30 180l30-30 30 30 30-30 30 30 30-30 20 20" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M30 140l30-30 30 30 30-30 30 30 30-30 20 20" />
+                            <circle cx="110" cy="40" r="4" fill="currentColor" />
+                            <circle cx="70" cy="40" r="4" fill="currentColor" />
+                            <circle cx="150" cy="40" r="4" fill="currentColor" />
+                            <!-- Circular compass indicator -->
+                            <circle cx="100" cy="110" r="25" stroke-dasharray="4,4" />
+                            <line x1="100" y1="75" x2="100" y2="145" stroke-width="1" />
+                            <line x1="65" y1="110" x2="135" y2="110" stroke-width="1" />
+                        </svg>
+
+                        <!-- Float Badge -->
+                        <div class="absolute bottom-4 left-4 bg-slate-900/90 border border-brand-500/40 px-3 py-2 rounded-lg text-xs text-brand-300 font-mono flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+                            BIM Lod 350 / MIDAS Ready
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-20 bg-white dark:bg-slate-950/40 border-t border-slate-100 dark:border-slate-900 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-slate-950 dark:text-white">PROFILES</h2>
+                <div class="w-16 h-1 bg-brand-500 mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-600 dark:text-slate-400 mt-4">안전과 지속가능성을 기틀로 삼는 차세대 미래 인재를 소개합니다.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                <!-- Profile details -->
+                <div class="lg:col-span-4 flex flex-col items-center p-6 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm text-center">
+                    <!-- Avatar placeholder -->
+                    <div class="relative w-36 h-36 rounded-full overflow-hidden border-4 border-white dark:border-slate-800 shadow-md mb-6">
+                        <img src="https://placehold.co/150x150/0284c7/ffffff?text=ENG" alt="홍길동 사진" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/150x150/cccccc/333333?text=Profile'">
+                    </div>
+                    <h3 class="text-2xl font-bold">홍길동 <span class="text-sm font-normal text-slate-500 dark:text-slate-400">(25세)</span></h3>
+                    <p class="text-brand-600 dark:text-brand-400 font-semibold mt-1">대한대학교 건설시스템공학과 졸업예정</p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">(2021.03 - 2027.02 예정)</p>
+                    
+                    <div class="w-full border-t border-slate-200 dark:border-slate-800 my-5"></div>
+                    
+                    <div class="w-full text-left space-y-3.5 text-sm">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-brand-500 w-5"></i>
+                            <span class="text-slate-600 dark:text-slate-300">civil_hong@email.com</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-brand-500 w-5"></i>
+                            <span class="text-slate-600 dark:text-slate-300">010-1234-5678</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-location-dot text-brand-500 w-5"></i>
+                            <span class="text-slate-600 dark:text-slate-300">서울특별시 성동구</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-graduation-cap text-brand-500 w-5"></i>
+                            <span class="text-slate-600 dark:text-slate-300">건설시스템공학 전공 (학점 4.12/4.5)</span>
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="mt-6 w-full py-2.5 px-4 bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold rounded-lg hover:bg-slate-800 dark:hover:bg-slate-100 transition-colors text-sm">
+                        연락처 복사 / 메일 쓰기
+                    </a>
+                </div>
+
+                <!-- Education / Certifications -->
+                <div class="lg:col-span-8 space-y-8">
+                    <!-- Core Values / Strengths -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-lightbulb text-brand-500"></i> 핵심 가치관
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
+                                <span class="p-2 rounded-lg bg-emerald-100 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 inline-block mb-3">
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                </span>
+                                <h4 class="font-bold">철저한 구조 안전성</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">안전률과 한계상태설계법을 엄격히 준수하여 신뢰할 수 있는 기반 시설을 구축합니다.</p>
+                            </div>
+                            <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
+                                <span class="p-2 rounded-lg bg-brand-100 dark:bg-brand-950/50 text-brand-600 dark:text-brand-400 inline-block mb-3">
+                                    <i class="fa-solid fa-cube"></i>
+                                </span>
+                                <h4 class="font-bold">스마트 BIM 연계</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">평면 도면을 뛰어넘어 3D 데이터 모델링(Revit)을 통해 시공 간섭을 획기적으로 줄입니다.</p>
+                            </div>
+                            <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
+                                <span class="p-2 rounded-lg bg-amber-100 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 inline-block mb-3">
+                                    <i class="fa-solid fa-seedling"></i>
+                                </span>
+                                <h4 class="font-bold">친환경 스마트 시티</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">투수성 포장, 저영향개발(LID) 기법을 반영한 지속가능한 수자원과 도시 공학을 추구합니다.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certifications & Awards List -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-certificate text-brand-500"></i> 자격증 및 어학 성적
+                        </h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <!-- Certificate Item -->
+                            <div class="flex items-center gap-3.5 p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
+                                <div class="w-12 h-12 rounded-lg bg-brand-100 dark:bg-brand-900/50 text-brand-600 dark:text-brand-400 flex items-center justify-center text-lg font-bold shrink-0">
+                                    <i class="fa-solid fa-calculator"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm">토목기사 필기 합격 / 실기 대기</h4>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400">한국산업인력공단 | 2026.04</p>
+                                </div>
+                            </div>
+                            <!-- Certificate Item -->
+                            <div class="flex items-center gap-3.5 p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
+                                <div class="w-12 h-12 rounded-lg bg-brand-100 dark:bg-brand-900/50 text-brand-600 dark:text-brand-400 flex items-center justify-center text-lg font-bold shrink-0">
+                                    <i class="fa-solid fa-layer-group"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm">건설재료시험기사</h4>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400">한국산업인력공단 | 취득 완료</p>
+                                </div>
+                            </div>
+                            <!-- Certificate Item -->
+                            <div class="flex items-center gap-3.5 p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
+                                <div class="w-12 h-12 rounded-lg bg-brand-100 dark:bg-brand-900/50 text-brand-600 dark:text-brand-400 flex items-center justify-center text-lg font-bold shrink-0">
+                                    <i class="fa-solid fa-file-invoice"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm">AutoCAD 실무능력평가 (CAT 1급)</h4>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400">한국생산성본부 | 취득 완료</p>
+                                </div>
+                            </div>
+                            <!-- Certificate Item -->
+                            <div class="flex items-center gap-3.5 p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
+                                <div class="w-12 h-12 rounded-lg bg-brand-100 dark:bg-brand-900/50 text-brand-600 dark:text-brand-400 flex items-center justify-center text-lg font-bold shrink-0">
+                                    <i class="fa-solid fa-language"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm">TOEIC Speaking AL (160점)</h4>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400">YBM 한국토익위원회 | 2026.02</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Engineering Skills Section -->
+    <section id="skills" class="py-20 bg-slate-100/50 dark:bg-slate-900/50 border-t border-slate-200 dark:border-slate-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-slate-950 dark:text-white">SOFTWARE & ENGINEERING SKILLS</h2>
+                <div class="w-16 h-1 bg-brand-500 mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-600 dark:text-slate-400 mt-4">건설 도면 작성 및 구조물 해석을 위해 능숙하게 조작할 수 있는 엔지니어링 툴 리스트입니다.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Skill Category 1: BIM & Drafting -->
+                <div class="bg-white dark:bg-slate-950 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-5">
+                    <div class="flex items-center gap-3 text-brand-600 dark:text-brand-400">
+                        <i class="fa-solid fa-compass-drafting text-2xl"></i>
+                        <h3 class="text-xl font-bold">도면 및 3D 모델링 (BIM)</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <!-- Skill 1 -->
+                        <div>
+                            <div class="flex justify-between text-sm font-medium mb-1">
+                                <span>AutoCAD (토목 제도)</span>
+                                <span class="text-brand-600 dark:text-brand-400 font-bold">90%</span>
+                            </div>
+                            <div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-brand-500 rounded-full transition-all duration-1000" style="width: 90%"></div>
+                            </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">철근배근도, 교대·교각 표준 단면도 작성 및 수정 완벽 수행 가능.</p>
+                        </div>
+                        <!-- Skill 2 -->
+                        <div>
+                            <div class="flex justify-between text-sm font-medium mb-1">
+                                <span>Autodesk Revit (BIM)</span>
+                                <span class="text-brand-600 dark:text-brand-400 font-bold">85%</span>
+                            </div>
+                            <div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-brand-500 rounded-full transition-all duration-1000" style="width: 85%"></div>
+                            </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">LOD 350 수준의 구조 객체(패밀리) 생성, 4D 공정 간섭 확인 검토 가능.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Category 2: Analysis & Calculations -->
+                <div class="bg-white dark:bg-slate-950 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-5">
+                    <div class="flex items-center gap-3 text-brand-600 dark:text-brand-400">
+                        <i class="fa-solid fa-chart-line text-2xl"></i>
+                        <h3 class="text-xl font-bold">구조 및 수리/지반 해석</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <!-- Skill 1 -->
+                        <div>
+                            <div class="flex justify-between text-sm font-medium mb-1">
+                                <span>MIDAS Civil</span>
+                                <span class="text-brand-600 dark:text-brand-400 font-bold">80%</span>
+                            </div>
+                            <div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-brand-500 rounded-full transition-all duration-1000" style="width: 80%"></div>
+                            </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">PSC 거더교 교량 모델링, 고정하중/활하중에 의한 영향선 분석 및 모멘트 검증.</p>
+                        </div>
+                        <!-- Skill 2 -->
+                        <div>
+                            <div class="flex justify-between text-sm font-medium mb-1">
+                                <span>EPA-SWMM</span>
+                                <span class="text-brand-600 dark:text-brand-400 font-bold">75%</span>
+                            </div>
+                            <div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-brand-500 rounded-full transition-all duration-1000" style="width: 75%"></div>
+                            </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">우수 유출 계산 모델링 및 지수 시점 한계 홍수 배수 유역 우수관망 시뮬레이션.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Category 3: Smart Construction & Coding -->
+                <div class="bg-white dark:bg-slate-950 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-5">
+                    <div class="flex items-center gap-3 text-brand-600 dark:text-brand-400">
+                        <i class="fa-solid fa-laptop-code text-2xl"></i>
+                        <h3 class="text-xl font-bold">스마트 건설 & 기타</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <!-- Skill 1 -->
+                        <div>
+                            <div class="flex justify-between text-sm font-medium mb-1">
+                                <span>QGIS / ArcGIS</span>
+                                <span class="text-brand-600 dark:text-brand-400 font-bold">75%</span>
+                            </div>
+                            <div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-brand-500 rounded-full transition-all duration-1000" style="width: 75%"></div>
+                            </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">고도 표고 분석(DEM), 유역 경계 파악 및 입지 분석 기초 분석 프로세싱.</p>
+                        </div>
+                        <!-- Skill 2 -->
+                        <div>
+                            <div class="flex justify-between text-sm font-medium mb-1">
+                                <span>Python 데이터 수집</span>
+                                <span class="text-brand-600 dark:text-brand-400 font-bold">70%</span>
+                            </div>
+                            <div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-brand-500 rounded-full transition-all duration-1000" style="width: 70%"></div>
+                            </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">스마트 시티 센서 공공데이터 파싱 및 시각화 전처리 스크립팅 활용 가능.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Engineering Projects Section -->
+    <section id="projects" class="py-20 bg-white dark:bg-slate-950 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-slate-950 dark:text-white">PORTFOLIO PROJECTS</h2>
+                <div class="w-16 h-1 bg-brand-500 mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-600 dark:text-slate-400 mt-4">대학 재학 중 및 종합 설계 과제에서 수행한 대표 토목·건설 프로젝트입니다. 각 카드를 클릭하면 상세한 한계 상태 및 성과를 보여줍니다.</p>
+            </div>
+
+            <!-- Portfolio Category Filter Tabs -->
+            <div class="flex flex-wrap justify-center gap-2 mb-10">
+                <button onclick="filterProjects('all')" class="filter-btn px-4 py-2 text-sm font-semibold rounded-full bg-brand-600 text-white shadow-md transition-all">전체보기</button>
+                <button onclick="filterProjects('structural')" class="filter-btn px-4 py-2 text-sm font-semibold rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all">구조 해석</button>
+                <button onclick="filterProjects('water-env')" class="filter-btn px-4 py-2 text-sm font-semibold rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all">수리/수자원</button>
+                <button onclick="filterProjects('bim-cad')" class="filter-btn px-4 py-2 text-sm font-semibold rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all">BIM & 설계</button>
+            </div>
+
+            <!-- Project Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1 (Structural) -->
+                <div class="project-card bg-slate-50 dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all cursor-pointer" data-category="structural" onclick="openModal('proj1')">
+                    <div class="relative h-48 bg-brand-900 flex items-center justify-center overflow-hidden">
+                        <img src="https://placehold.co/600x400/0c4a6e/ffffff?text=PSC+Bridge+Design" alt="교량 해석 설계" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-brand-500 text-white text-xs px-2.5 py-1 font-bold rounded-md">구조 공학</span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="text-lg font-bold">PSC 거더교 교량 상부구조 안전성 정밀 해석</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">MIDAS Civil | 2인 프로젝트 (기여도 50%)</p>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 line-clamp-2">하중 계수 및 소요 철근량을 검토하여 설계 수명을 보장할 수 있도록 처짐 및 휨 응력을 해석했습니다.</p>
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded-md text-[10px] font-mono">MIDAS Civil</span>
+                            <span class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded-md text-[10px] font-mono">한계상태설계법</span>
+                            <span class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded-md text-[10px] font-mono">PSC 거더</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 (Water-Env) -->
+                <div class="project-card bg-slate-50 dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all cursor-pointer" data-category="water-env" onclick="openModal('proj2')">
+                    <div class="relative h-48 bg-teal-900 flex items-center justify-center overflow-hidden">
+                        <img src="https://placehold.co/600x400/0f766e/ffffff?text=SWMM+Stormwater" alt="우수 배수구역 우수관망 시뮬레이션" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-teal-500 text-white text-xs px-2.5 py-1 font-bold rounded-md">수리/환경</span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="text-lg font-bold">강우 유출 분석을 통한 배수구역 침수 방지 설계</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">EPA-SWMM & QGIS | 개인 프로젝트</p>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 line-clamp-2">50년 빈도 확률강우량을 반영하여 도시 침수 취약 구간의 관로 확대 배치 솔루션을 도출했습니다.</p>
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded-md text-[10px] font-mono">EPA-SWMM</span>
+                            <span class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded-md text-[10px] font-mono">QGIS</span>
+                            <span class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded-md text-[10px] font-mono">스마트 배수망</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 (BIM-CAD) -->
+                <div class="project-card bg-slate-50 dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all cursor-pointer" data-category="bim-cad" onclick="openModal('proj3')">
+                    <div class="relative h-48 bg-indigo-900 flex items-center justify-center overflow-hidden">
+                        <img src="https://placehold.co/600x400/311b92/ffffff?text=3D+BIM+Revit+Bridge" alt="BIM 교량 설계" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-indigo-500 text-white text-xs px-2.5 py-1 font-bold rounded-md">BIM/CAD</span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="text-lg font-bold">3D BIM 기반 교량 철근 배근 간섭 분석</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Autodesk Revit | 4인 캡스톤 (BIM 모델러 기여도 60%)</p>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 line-clamp-2">복잡한 교대 접합부 철근 상세를 Revit으로 시각화하여 시공 중 조립 간섭을 25% 예방했습니다.</p>
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded-md text-[10px] font-mono">Revit Architecture</span>
+                            <span class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded-md text-[10px] font-mono">LOD 350</span>
+                            <span class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded-md text-[10px] font-mono">간섭체크</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 (Structural - Geotech) -->
+                <div class="project-card bg-slate-50 dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all cursor-pointer" data-category="structural" onclick="openModal('proj4')">
+                    <div class="relative h-48 bg-amber-900 flex items-center justify-center overflow-hidden">
+                        <img src="https://placehold.co/600x400/78350f/ffffff?text=Retaining+Wall" alt="옹벽 안정성 해석" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-amber-500 text-white text-xs px-2.5 py-1 font-bold rounded-md">지반/구조</span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="text-lg font-bold">배면 하중 변화에 따른 옹벽 안정성 안전율 검토</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">지반공학 설계 학회과제 | 개인 프로젝트</p>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 line-clamp-2">전도, 활동, 지지력 파괴 모드에 따른 구조물의 한계 주기를 산정하고 보강재 배치를 최적화했습니다.</p>
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded-md text-[10px] font-mono">토압 계산</span>
+                            <span class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded-md text-[10px] font-mono">활동/전도 검토</span>
+                            <span class="px-2 py-1 bg-slate-200 dark:bg-slate-800 rounded-md text-[10px] font-mono">안전성 평가</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience / Activity Timeline -->
+    <section id="experience" class="py-20 bg-slate-100/50 dark:bg-slate-900/50 border-t border-slate-200 dark:border-slate-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-slate-950 dark:text-white">EXPERIENCES</h2>
+                <div class="w-16 h-1 bg-brand-500 mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-600 dark:text-slate-400 mt-4">책임감과 협동심을 바탕으로 인턴십, 학회, 봉사에서 쌓아온 실전 역량들입니다.</p>
+            </div>
+
+            <!-- Vertical Timeline Design -->
+            <div class="relative border-l-2 border-slate-300 dark:border-slate-700 max-w-3xl mx-auto pl-6 space-y-12">
+                <!-- Timeline Item 1 -->
+                <div class="relative">
+                    <span class="absolute -left-[31px] top-1.5 bg-brand-500 w-4 h-4 rounded-full border-4 border-slate-100 dark:border-slate-900 ring-4 ring-brand-100 dark:ring-brand-950"></span>
+                    <div class="bg-white dark:bg-slate-950 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
+                        <span class="text-xs font-bold text-brand-600 dark:text-brand-400 font-mono">2025.07 - 2025.08 (하계 방학)</span>
+                        <h3 class="text-lg font-bold">대한종합건설 엔지니어링 인턴</h3>
+                        <p class="text-sm font-semibold text-slate-600 dark:text-slate-400">구조 설계 및 적산 지원 인턴십</p>
+                        <ul class="text-xs text-slate-500 dark:text-slate-400 list-disc pl-4 space-y-1 mt-2">
+                            <li>강원도 평창 교량 교도 및 연장 측량 구조 계산 검토 보조.</li>
+                            <li>AutoCAD를 사용한 주주 교각 시공 표준 단면 전개 도면 12매 수정 전송.</li>
+                            <li>Excel 수량산출서를 시방서 및 단가 표준에 맞춰 구조 가공 철근 중량 검산율 100% 완료.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="relative">
+                    <span class="absolute -left-[31px] top-1.5 bg-brand-500 w-4 h-4 rounded-full border-4 border-slate-100 dark:border-slate-900 ring-4 ring-brand-100 dark:ring-brand-950"></span>
+                    <div class="bg-white dark:bg-slate-950 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
+                        <span class="text-xs font-bold text-brand-600 dark:text-brand-400 font-mono">2024.03 - 2024.12</span>
+                        <h3 class="text-lg font-bold">대학교 건설설계학술소모임 'Truss' 회장</h3>
+                        <p class="text-sm font-semibold text-slate-600 dark:text-slate-400">BIM 및 미래 기반 인프라 설계 연구활동</p>
+                        <ul class="text-xs text-slate-500 dark:text-slate-400 list-disc pl-4 space-y-1 mt-2">
+                            <li>부원 20명을 리드하여 MIDAS Civil 및 Revit 기초 스터디 커리큘럼(10주차) 기획 및 운영.</li>
+                            <li>소모임 학술 경연대회에서 '친환경 스마트 보행교 구조 최적화' 주제를 발제하여 우수 학회 동아리상(은상) 수상.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="relative">
+                    <span class="absolute -left-[31px] top-1.5 bg-brand-500 w-4 h-4 rounded-full border-4 border-slate-100 dark:border-slate-900 ring-4 ring-brand-100 dark:ring-brand-950"></span>
+                    <div class="bg-white dark:bg-slate-950 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
+                        <span class="text-xs font-bold text-brand-600 dark:text-brand-400 font-mono">2023.07</span>
+                        <h3 class="text-lg font-bold">캄보디아 해외 적정기술 교육 및 위생 봉사단</h3>
+                        <p class="text-sm font-semibold text-slate-600 dark:text-slate-400">교내 해외 교육 자원봉사 파견단원</p>
+                        <ul class="text-xs text-slate-500 dark:text-slate-400 list-disc pl-4 space-y-1 mt-2">
+                            <li>적정기술(모래 필터 간이 정수 장치) 구조 파트 구축 설계 보조 및 교실 조립 교육 실시.</li>
+                            <li>현지 기후와 인근 구조물 여건을 반영한 배수 가이드라인 구축 프로젝트 협력 활동 수행.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white dark:bg-slate-950 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-slate-950 dark:text-white">CONTACT ME</h2>
+                <div class="w-16 h-1 bg-brand-500 mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-600 dark:text-slate-400 mt-4">준비된 스마트 인프라 인재, 홍길동의 성실한 역량을 더해드리겠습니다. 언제든지 편안하게 제안해 주세요.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-5xl mx-auto items-stretch">
+                <!-- Info cards & Copy Utilities -->
+                <div class="lg:col-span-5 flex flex-col gap-6 justify-between">
+                    <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
+                        <div class="flex items-center gap-4">
+                            <span class="w-12 h-12 rounded-xl bg-brand-100 dark:bg-brand-900/50 text-brand-600 dark:text-brand-400 flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </span>
+                            <div>
+                                <h4 class="font-bold text-sm text-slate-500 dark:text-slate-400">이메일 연락처</h4>
+                                <p class="text-lg font-bold text-slate-800 dark:text-white">civil_hong@email.com</p>
+                            </div>
+                        </div>
+                        <button onclick="copyToClipboard('civil_hong@email.com')" class="w-full py-2.5 px-4 rounded-lg border border-brand-500/20 text-brand-600 dark:text-brand-400 text-xs font-bold hover:bg-brand-500/10 transition-colors flex items-center justify-center gap-2">
+                            <i class="fa-regular fa-copy"></i> 이메일 주소 복사하기
+                        </button>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
+                        <div class="flex items-center gap-4">
+                            <span class="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </span>
+                            <div>
+                                <h4 class="font-bold text-sm text-slate-500 dark:text-slate-400">휴대폰 연락처</h4>
+                                <p class="text-lg font-bold text-slate-800 dark:text-white">010-1234-5678</p>
+                            </div>
+                        </div>
+                        <a href="tel:01012345678" class="w-full py-2.5 px-4 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-all text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-phone-volume"></i> 전화 즉시 걸기
+                        </a>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-around">
+                        <a href="#" class="w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 flex items-center justify-center hover:scale-110 transition-transform" title="블로그">
+                            <i class="fa-solid fa-blog text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 flex items-center justify-center hover:scale-110 transition-transform" title="LinkedIn">
+                            <i class="fa-brands fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 flex items-center justify-center hover:scale-110 transition-transform" title="GitHub">
+                            <i class="fa-brands fa-github text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Web Contact Form -->
+                <div class="lg:col-span-7">
+                    <form id="contact-form" onsubmit="handleContactSubmit(event)" class="p-8 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="contact-name" class="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1.5">기관명 / 직책</label>
+                                <input type="text" id="contact-name" required placeholder="예: 인사담당자 / 채용 부서" class="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 focus:ring-2 focus:ring-brand-500 focus:outline-none transition-all">
+                            </div>
+                            <div>
+                                <label for="contact-reply-to" class="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1.5">회신 연락처 (이메일/번호)</label>
+                                <input type="text" id="contact-reply-to" required placeholder="예: hr_manager@company.com" class="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 focus:ring-2 focus:ring-brand-500 focus:outline-none transition-all">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="contact-subject" class="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1.5">제목</label>
+                            <input type="text" id="contact-subject" required placeholder="예: [채용/인턴십] 대한엔지니어링에서 제안 드립니다." class="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 focus:ring-2 focus:ring-brand-500 focus:outline-none transition-all">
+                        </div>
+
+                        <div>
+                            <label for="contact-message" class="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1.5">제안 내용</label>
+                            <textarea id="contact-message" rows="5" required placeholder="길동 학생의 이력 및 프로젝트를 보고 채용 제안 차 연락 드립니다..." class="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 focus:ring-2 focus:ring-brand-500 focus:outline-none transition-all"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold transition-all shadow-lg shadow-brand-500/10 flex items-center justify-center gap-2">
+                            <i class="fa-regular fa-paper-plane"></i> 제안 메시지 전송하기
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <div class="flex justify-center items-center gap-2">
+                <div class="w-8 h-8 rounded bg-gradient-to-tr from-brand-700 to-brand-500 flex items-center justify-center text-white font-bold">
+                    <i class="fa-solid fa-compass-drafting text-sm"></i>
+                </div>
+                <span class="font-bold text-white tracking-wider">HONG GIL DONG</span>
+            </div>
+            <p class="text-xs">
+                본 페이지는 건설시스템공학과 대학 졸업예정자의 커리어 로드맵 및 채용 포트폴리오 개인 홈페이지입니다.<br>
+                © 2026 Hong Gil Dong. All rights reserved. Designed for Construction and Structural Engineering.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Project Detail Modals -->
+    <div id="project-modal" class="fixed inset-0 z-50 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <!-- Modal Overlay -->
+            <div class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
+
+            <!-- Modal Contents Centerer -->
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+            <!-- Modal Card Structure -->
+            <div class="inline-block align-bottom bg-white dark:bg-slate-900 rounded-2xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-3xl sm:w-full border border-slate-200 dark:border-slate-800">
+                <div class="relative">
+                    <!-- Close button -->
+                    <button onclick="closeModal()" class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-slate-900/60 hover:bg-slate-900 text-white flex items-center justify-center transition-all">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    
+                    <!-- Top Dynamic Banner Image in Modal -->
+                    <div class="h-64 bg-slate-800 relative flex items-center justify-center">
+                        <img id="modal-image" src="" alt="프로젝트 이미지" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 text-white space-y-1">
+                            <span id="modal-tag" class="text-xs font-bold px-2.5 py-1 rounded bg-brand-500 uppercase">분야</span>
+                            <h3 id="modal-title" class="text-2xl font-extrabold mt-1">프로젝트 타이틀</h3>
+                        </div>
+                    </div>
+
+                    <!-- Modal Body Description -->
+                    <div class="p-6 sm:p-8 space-y-6">
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-950 text-xs border border-slate-200 dark:border-slate-800">
+                            <div>
+                                <h4 class="font-bold text-slate-500 dark:text-slate-400">수행 기간</h4>
+                                <p id="modal-period" class="font-semibold text-slate-800 dark:text-white mt-0.5">2026.03 - 2026.06</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-500 dark:text-slate-400">참여 구분</h4>
+                                <p id="modal-role" class="font-semibold text-slate-800 dark:text-white mt-0.5">학부 캡스톤 (4인)</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-500 dark:text-slate-400">본인 기여도</h4>
+                                <p id="modal-contribution" class="font-semibold text-slate-800 dark:text-white mt-0.5">60%</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-500 dark:text-slate-400">핵심 사용 툴</h4>
+                                <p id="modal-tools" class="font-semibold text-slate-800 dark:text-white mt-0.5">Revit, Navisworks</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="text-base font-bold text-slate-950 dark:text-white flex items-center gap-2">
+                                    <span class="w-1.5 h-4 bg-brand-500 rounded-full"></span> 프로젝트 개요
+                                </h4>
+                                <p id="modal-summary" class="text-sm text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">상세 기술설명...</p>
+                            </div>
+
+                            <div>
+                                <h4 class="text-base font-bold text-slate-950 dark:text-white flex items-center gap-2">
+                                    <span class="w-1.5 h-4 bg-brand-500 rounded-full"></span> 주요 분석 및 성과
+                                </h4>
+                                <ul id="modal-highlights" class="text-sm text-slate-600 dark:text-slate-300 list-disc pl-5 mt-2 space-y-1">
+                                    <li>성과 요약 1</li>
+                                    <li>성과 요약 2</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Footer actions inside Modal -->
+                        <div class="pt-4 border-t border-slate-200 dark:border-slate-800 flex justify-end gap-3">
+                            <button onclick="closeModal()" class="px-5 py-2.5 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 text-sm transition-colors">
+                                닫기
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Custom Toast Notification -->
+    <div id="toast-notification" class="fixed bottom-5 right-5 z-50 bg-slate-900 text-white dark:bg-white dark:text-slate-900 py-3.5 px-6 rounded-xl shadow-2xl flex items-center gap-3 border border-slate-700 dark:border-slate-200 transform translate-y-20 opacity-0 transition-all duration-300">
+        <span id="toast-icon" class="text-emerald-500 dark:text-emerald-600"><i class="fa-solid fa-circle-check text-lg"></i></span>
+        <span id="toast-message" class="text-sm font-semibold">이메일 복사가 완료되었습니다.</span>
+    </div>
+
+    <!-- JavaScript Interactive Logic -->
+    <script>
+        
+        // Mock data for project detailed modals
+        const projectDetails = {
+            proj1: {
+                title: "PSC 거더교 교량 상부구조 안전성 정밀 해석",
+                tag: "구조 해석",
+                image: "https://placehold.co/800x600/0c4a6e/ffffff?text=PSC+Bridge+Design",
+                period: "2025.09 - 2025.12",
+                role: "전공 종합설계과제 (2인)",
+                contribution: "50% (기둥 및 거더 모델링 총괄)",
+                tools: "MIDAS Civil, AutoCAD",
+                summary: "본 프로젝트는 실제 교량 도면 규격을 분석하여 설계 설계기준을 수치 해석하고 안전성을 최종 검토하는 교량 안전 분석 과제였습니다. 강재 연성 한계 상태 및 사용 하중 상태에서의 최대 휨 압축 및 휨 인장 상태를 파악했습니다.",
+                highlights: [
+                    "MIDAS Civil 교량 빔 요소를 활용한 PSC 거더 5구간 구조 모사 완료",
+                    "도로 설계 기하 단면 적용 및 고정 하중(사하중), 활하중 조합 산정",
+                    "지점부 반력 및 최대 휨모멘트 발생 위치 분석을 통한 철근량 설계 최적화",
+                    "기하 비선형 해석 결과, 허용 오차 범위 5.2% 내의 정밀 구조 정합성 도출"
+                ]
+            },
+            proj2: {
+                title: "강우 유출 분석을 통한 배수구역 침수 방지 설계",
+                tag: "수리/수자원",
+                image: "https://placehold.co/800x600/0f766e/ffffff?text=SWMM+Stormwater",
+                period: "2024.09 - 2024.12",
+                role: "수리학 및 수자원설계 (개인)",
+                contribution: "100%",
+                tools: "EPA-SWMM, QGIS",
+                summary: "기후 변화에 따른 강우 강도 변화를 대비하여, 스마트 복합 가로 인프라가 배수망에 기여하는 영향을 분석한 설계 과제입니다. 실제 지자체의 우수관 매설 데이터를 가공하여 침수 시 우수 저류량 변화를 추적했습니다.",
+                highlights: [
+                    "QGIS DEM 데이터 연동을 통한 관망 배치 구역 고도화 및 세부 유역 설정",
+                    "확률강우량 수치를 기점으로 EPA-SWMM 우수 흐름 매설 관로 흐름 모델링",
+                    "배수 관로 3개 지점의 허용 통수능 초과 시점에 따른 침수 시뮬레이션 구현",
+                    "도시 투수 블록(LID 공법) 적용 전후 비교를 통한 지표 유출수량 21% 절감 제안"
+                ]
+            },
+            proj3: {
+                title: "3D BIM 기반 교량 철근 배근 간섭 분석",
+                tag: "BIM & 설계",
+                image: "https://placehold.co/800x600/311b92/ffffff?text=3D+BIM+Revit+Bridge",
+                period: "2025.03 - 2025.06",
+                role: "학부 종합 설계 캡스톤 (4인)",
+                contribution: "60% (Revit 구조 패밀리 제작 총괄)",
+                tools: "Autodesk Revit, Navisworks",
+                summary: "기존 2차원 도면 작성에서 빈번히 야기되는 복잡 접합부 철근 배근 시공성 문제를 3D BIM을 도입하여 사전 해결하는 방안을 설계하였습니다. 빔 패밀리와 교각 기둥 등 콘크리트 및 종철근을 정밀 배치하였습니다.",
+                highlights: [
+                    "Autodesk Revit 2024를 사용한 LOD 350 구조 표준 패밀리 라이브러리 정립",
+                    "교각 및 철근 피복 두께 유지 시공 조건에 근거한 상세 배근 및 정밀 모델링",
+                    "Navisworks 간섭 검사 모듈을 구동하여 구조 철근 조립간 간섭 14건 사전 식별",
+                    "정성 분석을 통해 공사 기간 약 3일 단축 및 비용 절감 시뮬레이션 성과 달성"
+                ]
+            },
+            proj4: {
+                title: "배면 하중 변화에 따른 옹벽 안정성 안전율 검토",
+                tag: "구조/지반",
+                image: "https://placehold.co/800x600/78350f/ffffff?text=Retaining+Wall",
+                period: "2024.03 - 2024.06",
+                role: "토질 및 기초 설계 과제 (개인)",
+                contribution: "100%",
+                tools: "토압 산정식, 수치 수기계산",
+                summary: "옹벽 배면 토사 성토 두께 및 토층 조건의 다변화에 따라 발생하는 가상 주압 및 주동 토압 영향도를 정밀하게 탐구하여, 옹벽 전도 및 저판 지지력 파괴를 검토한 지반 기초 공학의 기본 설계 프로젝트입니다.",
+                highlights: [
+                    "Rankine 및 Coulomb 토압 이론을 상호 교차 대입한 토합 분포도 산정",
+                    "한계평형 조건 기반 전도 안전율(F.S > 2.0), 활동 안전율(F.S > 1.5) 검증 수치 산출",
+                    "배수 불량 시 공극수압 증대에 따른 사면 안전율 추락 위험성 정량 수치 분석",
+                    "지반 개량 보강 공법 및 옹벽 배후 배수 자갈 배치 등 현장 최적화 보강안 완성"
+                ]
+            }
+        };
+
+        // Filter projects by category with smooth transitions
+        function filterProjects(category) {
+            // Update filter buttons background
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-brand-600', 'text-white', 'shadow-md');
+                btn.classList.add('bg-slate-100', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300', 'hover:bg-slate-200', 'dark:hover:bg-slate-700');
+            });
+
+            // Highlight clicked button
+            const activeBtn = event.currentTarget;
+            activeBtn.classList.add('bg-brand-600', 'text-white', 'shadow-md');
+            activeBtn.classList.remove('bg-slate-100', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300', 'hover:bg-slate-200', 'dark:hover:bg-slate-700');
+
+            // Toggle project cards
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 50);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        }
+
+        // Theme switching logic with support for user preference persistent
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeIconMobile = document.getElementById('theme-icon-mobile');
+
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                updateThemeIcons(false);
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                updateThemeIcons(true);
+            }
+        }
+
+        function updateThemeIcons(isDark) {
+            if (isDark) {
+                themeIcon.className = "fa-solid fa-sun text-amber-400";
+                themeIconMobile.className = "fa-solid fa-sun text-amber-400";
+            } else {
+                themeIcon.className = "fa-solid fa-moon";
+                themeIconMobile.className = "fa-solid fa-moon";
+            }
+        }
+
+        // Initialize Theme Mode
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            updateThemeIcons(true);
+        } else {
+            document.documentElement.classList.remove('dark');
+            updateThemeIcons(false);
+        }
+
+        themeToggle.addEventListener('click', toggleTheme);
+        themeToggleMobile.addEventListener('click', toggleTheme);
+
+        // Mobile drawer menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close drawer when clicking single menu link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Copy Email to clipboard utility function
+        function copyToClipboard(text) {
+            // Fallback copy strategy for cross-environment compatibility (iframe-safe)
+            const el = document.createElement('textarea');
+            el.value = text;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+
+            showToast("이메일 주소가 클립보드에 복증되었습니다!", "success");
+        }
+
+        // Toast feedback notifier
+        function showToast(message, type = "success") {
+            const toast = document.getElementById('toast-notification');
+            const toastMessage = document.getElementById('toast-message');
+            const toastIcon = document.getElementById('toast-icon');
+
+            toastMessage.textContent = message;
+            
+            if (type === "success") {
+                toastIcon.innerHTML = `<i class="fa-solid fa-circle-check text-lg"></i>`;
+                toastIcon.className = "text-emerald-500 dark:text-emerald-400";
+            } else {
+                toastIcon.innerHTML = `<i class="fa-solid fa-triangle-exclamation text-lg"></i>`;
+                toastIcon.className = "text-amber-500 dark:text-amber-400";
+            }
+
+            // Animate In
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            // Auto Close after 3 seconds
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Project Modals Trigger Control
+        const modal = document.getElementById('project-modal');
+
+        function openModal(projectId) {
+            const details = projectDetails[projectId];
+            if (!details) return;
+
+            document.getElementById('modal-image').src = details.image;
+            document.getElementById('modal-tag').textContent = details.tag;
+            document.getElementById('modal-title').textContent = details.title;
+            document.getElementById('modal-period').textContent = details.period;
+            document.getElementById('modal-role').textContent = details.role;
+            document.getElementById('modal-contribution').textContent = details.contribution;
+            document.getElementById('modal-tools').textContent = details.tools;
+            document.getElementById('modal-summary').textContent = details.summary;
+
+            // Render Highlights dynamically
+            const highlightsList = document.getElementById('modal-highlights');
+            highlightsList.innerHTML = '';
+            details.highlights.forEach(item => {
+                const li = document.createElement('li');
+                li.className = "text-slate-600 dark:text-slate-300";
+                li.textContent = item;
+                highlightsList.appendChild(li);
+            });
+
+            // Show Modal Container
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // block page scrolling
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = ''; // restore scrolling
+        }
+
+        // Handle Contact Form Submit with client feedback mock
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('contact-name').value;
+            const reply = document.getElementById('contact-reply-to').value;
+            const subject = document.getElementById('contact-subject').value;
+            const message = document.getElementById('contact-message').value;
+
+            // Perform simple validation check
+            if (name && reply && subject && message) {
+                showToast("포트폴리오 제안 메시지가 전송되었습니다! (데모 피드백)", "success");
+                document.getElementById('contact-form').reset();
+            } else {
+                showToast("모든 빈칸을 성실히 채워주십시오.", "error");
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
